@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const {} = require('./routes/books')
+const books = require('./routes/books')
 const transactions = require('./routes/transactions')
 const bodyParser = require('body-parser')
  
@@ -13,9 +13,6 @@ mongoose.connect('mongodb://localhost/api-crud-mongoose', (err) => {
 app.use(bodyParser.urlencoded({ extended: false })) 
 // parse application/json
 app.use(bodyParser.json())
-
-const books = require('routes/books');
-const transactions = require('routes/transactions');
 
 app.use('/books', books);
 app.use('/transactions', transactions);
